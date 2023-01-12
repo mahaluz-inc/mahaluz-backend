@@ -14,6 +14,6 @@ export class LocationService {
     
     return (await Places.details({
       placeid: response.results[0].place_id,
-    })).result.;
+    })).result;
   }
 }
