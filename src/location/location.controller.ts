@@ -22,6 +22,6 @@ export class LocationController {
     @Query('day_in_week') dayInWeek: DaysInWeek,
     @Query('hour', ParseIntPipe) hour: Hours
   ) {
-    return await this.locationService.getLocationBusyHours(name, dayInWeek, hour);
+    return (await this.locationService.getLocationBusyHours(name, dayInWeek, hour)) ?? -1;
   }
 }

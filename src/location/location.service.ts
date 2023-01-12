@@ -34,6 +34,6 @@ export class LocationService {
     const {data} = await axios.get(
       `${url}/populartimes?api_key=${process.env.API_KEY}&place_id=${locationId}`
     );
-    return data.populartimes.find(dayPopularity => dayPopularity.name === dayInWeek).data[hour];
+    return data?.populartimes?.find(dayPopularity => dayPopularity.name === dayInWeek).data[hour];
   }
 }
