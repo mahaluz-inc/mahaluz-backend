@@ -24,6 +24,10 @@ export class LocationService {
     })).result;
   }
 
+  async autocompletePlaces(text: string) {
+    return (await Places.autocomplete({input: text})).predictions;
+  }
+
   async getLocationBusyHours(locationName: string, dayInWeek: DaysInWeek, hour: Hours): Promise<number>{
     const url = process.env.POPULAR_TIMES_ROUTE;
     const locationId = await this.getLocationId(locationName);

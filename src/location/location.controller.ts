@@ -11,6 +11,11 @@ export class LocationController {
     return await this.locationService.getLocationMetadata(name);
   }
 
+  @Get('autocomplete/:text')
+  async getLocationAutocompletePredictions(@Param('text') text: string) {
+    return await this.locationService.autocompletePlaces(text);
+  }
+
   @Get('busy-level/:name')
   async getLocationLevelOfBusy(
     @Param('name') name: string,
