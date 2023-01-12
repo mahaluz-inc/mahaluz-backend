@@ -1,0 +1,4 @@
+[dev]
+    command = "npm start"
+    port = 3000 # the port webpack-dev-server runs on, set in webpack.config.js
+    publish = "build" 
