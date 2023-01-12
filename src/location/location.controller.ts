@@ -1,8 +1,10 @@
 import { Controller, Get, Post, Body, Patch, Param, Delete, Query, ParseIntPipe } from '@nestjs/common';
+import { ApiTags } from '@nestjs/swagger';
 import { DaysInWeek, Hours } from './dto/busy-times.dto';
 import { LocationService } from './location.service';
 
 @Controller('location')
+@ApiTags("Location")
 export class LocationController {
   constructor(private readonly locationService: LocationService) {}
 
