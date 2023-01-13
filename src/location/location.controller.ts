@@ -8,9 +8,9 @@ import { LocationService } from './location.service';
 export class LocationController {
   constructor(private readonly locationService: LocationService) {}
 
-  @Get(':name')
-  async getLocationMetadata(@Param('name') name: string) {
-    return await this.locationService.getLocationMetadata(name);
+  @Get(':placeid')
+  async getLocationMetadata(@Param('placeid') placeid: string) {
+    return await this.locationService.getLocationMetadata(placeid);
   }
 
   @Get('autocomplete/:text')
@@ -18,12 +18,12 @@ export class LocationController {
     return await this.locationService.autocompletePlaces(text);
   }
 
-  @Get('busy-level/:name')
+  @Get('busy-level/:placeid')
   async getLocationLevelOfBusy(
-    @Param('name') name: string,
+    @Param('placeid') placeid: string,
     @Query('day_in_week') dayInWeek: DaysInWeek,
     @Query('hour', ParseIntPipe) hour: Hours
   ) {
-    return (await this.locationService.getLocationBusyHours(name, dayInWeek, hour)) ?? -1;
+    return (await this.locationService.getLocationBusyHours(placeid, dayInWeek, hour)) ?? -1;
   }
 }
