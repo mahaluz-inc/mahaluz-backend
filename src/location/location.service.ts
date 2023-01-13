@@ -20,11 +20,11 @@ export class LocationService {
     return (await Places.autocomplete({input: text})).predictions;
   }
 
-  async getLocationBusyHours(placeid: string, dayInWeek: DaysInWeek, hour: Hours): Promise<number>{
+  async getLocationBusyHours(placeid: string): Promise<any>{
     const url = process.env.POPULAR_TIMES_ROUTE;
     const {data} = await axios.get(
       `${url}/populartimes?api_key=${process.env.API_KEY}&place_id=${placeid}`
     );
-    return data?.populartimes?.find(dayPopularity => dayPopularity.name === dayInWeek).data[hour];
+    return data;
   }
 }
