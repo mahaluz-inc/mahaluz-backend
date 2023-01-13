@@ -4,7 +4,7 @@ import { Type } from "class-transformer";
 import { IsArray, IsDateString, IsNotEmpty, IsOptional, IsString, MinLength, ValidateNested } from "class-validator";
 import { Task } from "./shift.entity";
 
-export type CalenderDocument = Calendar & Document;
+export type CalendarDocument = Calendar & Document;
 
 export class Calendar {
     @IsOptional()

@@ -1,19 +1,22 @@
 import { Injectable } from '@nestjs/common';
+import { CalendarProxy } from './calendar.proxy';
 import { CreateCalendarDto } from './dto/create-calendar.dto';
 import { UpdateCalendarDto } from './dto/update-calendar.dto';
 
 @Injectable()
 export class CalendarService {
+  constructor(private calendarProxy: CalendarProxy) {}
+
   create(createCalendarDto: CreateCalendarDto) {
     return 'This action adds a new calendar';
   }
 
-  findAll() {
-    return `This action returns all calendar`;
+  async findAll() {
+    return this.calendarProxy.findAll();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} calendar`;
+  async findOne(id: string) {
+    return this.calendarProxy.findOne(id);
   }
 
   update(id: number, updateCalendarDto: UpdateCalendarDto) {
