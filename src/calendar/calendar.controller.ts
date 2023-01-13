@@ -19,7 +19,7 @@ export class CalendarController {
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.calendarService.findOne(+id);
+    return this.calendarService.findOne(id);
   }
 
   @Patch(':id')
